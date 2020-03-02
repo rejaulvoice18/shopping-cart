@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="minusSign" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="productAmount" type="text" class="form-control text-center" value="1">
+                           <button id="plusSign" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$<span id="productPrice">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="minusSign_2"  class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="productAmount_2" type="text" class="form-control text-center" value="1">
+                           <button id="plusSign_2" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$<span id="productPrice_2">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$<span id="subtotalInc">1278</span></h5>
+                        <h5>$0</h5>
+                        <h5>$<span id="totalPrice">1278</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <script>
+      //Mechanism For Plus sign - 1
+      const plusSignBtn = document.getElementById("plusSign");
+      //Plus Sign Event Handler
+      plusSignBtn.addEventListener("click", function(){
+         // '+' sign increment mechanism
+         const productAmountIncreaseBtn = document.getElementById("productAmount").value;
+         const productIncreaseNumber = parseInt(productAmountIncreaseBtn);
+         const increaseNumber = productIncreaseNumber + 1;
+         document.getElementById("productAmount").value = increaseNumber;
+
+      //Total Increment Part like- product, subtotal and total
+         //Product price increment
+         const productPriceBtn = document.getElementById("productPrice").innerText;
+         const productPciceNumber = parseInt(productPriceBtn);
+         const incrementProPrice = productPciceNumber + 1219;
+         document.getElementById("productPrice").innerText = incrementProPrice;
+                  
+         //Product subtotal price increment
+         const subtotalIncBtn = document.getElementById("subtotalInc").innerText;
+         const subtotalIncNum = parseInt(subtotalIncBtn);
+         const incrementSutotal = subtotalIncNum + 1219;
+         document.getElementById("subtotalInc").innerText = incrementSutotal;
+
+          //Product total price increment
+         const totalIncBtn = document.getElementById("totalPrice").innerText;
+         const totalIncNum = parseInt(totalIncBtn);
+         const incrementTotal = totalIncNum + 1219;
+         document.getElementById("totalPrice").innerText = incrementTotal;
+         
+      })
+
+      //Minus Sign Event Handler 
+      const minusSignBtn = document.getElementById("minusSign");
+      minusSignBtn.addEventListener("click", function(){
+         const productAmountBtn = document.getElementById("productAmount").value;
+         const productAmountNum = parseInt(productAmountBtn);
+         const finalDecrement = productAmountNum - 1;
+         document.getElementById("productAmount").value = finalDecrement;
+
+         //Produc price decrement
+         const productPriceDecBtn = document.getElementById("productPrice").innerText;
+         const productPriceDecNumber = parseInt(productPriceDecBtn);
+         const finalDecValue = productPriceDecNumber - 1219;
+         document.getElementById("productPrice").innerText = finalDecValue;
+
+         //Product subtotal price Decrement
+         const subtotalDeBtn = document.getElementById("subtotalInc").innerText;
+         const subtotalDeNum = parseInt(subtotalDeBtn);
+         const decrementSutotal = subtotalDeNum - 1219;
+         document.getElementById("subtotalInc").innerText = decrementSutotal;
+
+         //Product total price Decrement
+         const totalDeBtn = document.getElementById("totalPrice").innerText;
+         const totalDeNum = parseInt(totalDeBtn);
+         const decrementTotal = totalDeNum - 1219;
+         document.getElementById("totalPrice").innerText = decrementTotal;
+         
+      })
+
+      //Mechanism For Plus sign - 2
+         const plusSignBtn_2 = document.getElementById("plusSign_2");
+         //Plus Sign Event Handler
+         plusSignBtn_2.addEventListener("click", function () {
+            // '+' sign increment mechanism
+            const productAmountIncreaseBtn_2 = document.getElementById("productAmount_2").value;
+            const productIncreaseNumber_2 = parseInt(productAmountIncreaseBtn_2);
+            const increaseNumber_2 = productIncreaseNumber_2 + 1;
+            document.getElementById("productAmount_2").value = increaseNumber_2;
+            
+            //Total Increment Part like- product, subtotal and total
+            //Product price -2 increment
+            const productPriceBtn_2 = document.getElementById("productPrice_2").innerText;
+            const productPciceNumber_2 = parseInt(productPriceBtn_2);
+            const incrementProPrice_2 = productPciceNumber_2 + 59;
+            document.getElementById("productPrice_2").innerText = incrementProPrice_2;
+
+            //Product subtotal price - 2 increment
+            const subtotalIncBtn_2 = document.getElementById("subtotalInc").innerText;
+            const subtotalIncNum_2 = parseInt(subtotalIncBtn_2);
+            const incrementSutota1_2 = subtotalIncNum_2 + 59;
+            document.getElementById("subtotalInc").innerText = incrementSutota1_2;
+            
+            //Product total price -2 increment
+            const totalIncBtn_2 = document.getElementById("totalPrice").innerText;
+            const totalIncNum_2 = parseInt(totalIncBtn_2);
+            const incrementTotal_2 = totalIncNum_2 + 59;
+            document.getElementById("totalPrice").innerText = incrementTotal_2;
+            
+         })
+
+         //Mechanism For Minus sign - 2
+            const minusSignBtn_2 = document.getElementById("minusSign_2");
+            //Minus Sign Event Handler 2
+            minusSignBtn_2.addEventListener("click", function () {
+               // '-' sign decrement mechanism
+               const productAmountDecreaseBtn_2 = document.getElementById("productAmount_2").value;
+               const productDecreaseNumber_2 = parseInt(productAmountDecreaseBtn_2);
+               const decreaseNumber_2 = productDecreaseNumber_2 - 1;
+               document.getElementById("productAmount_2").value = decreaseNumber_2;
+
+               //Total decrement Part like- product, subtotal and total
+               //Product price decrement
+               const productPriceDeBtn_2 = document.getElementById("productPrice_2").innerText;
+               const productPciceDeNumber_2 = parseInt(productPriceDeBtn_2);
+               const decrementProPrice_2 = productPciceDeNumber_2 - 59;
+               document.getElementById("productPrice_2").innerText = decrementProPrice_2;
+               
+               //Product subtotal price decrement
+               const subtotalDecBtn_2 = document.getElementById("subtotalInc").innerText;
+               const subtotalDecNum_2 = parseInt(subtotalDecBtn_2);
+               const decrementSutotal_2 = subtotalDecNum_2 - 59;
+               document.getElementById("subtotalInc").innerText = decrementSutotal_2;
+
+               //Product total price decrement
+               const totalDecBtn_2 = document.getElementById("totalPrice").innerText;
+               const totalDecNum_2 = parseInt(totalDecBtn_2);
+               const decrementTotal_2 = totalDecNum_2 - 59;
+               document.getElementById("totalPrice").innerText = decrementTotal_2;
+              
+            })
+   </script>
+</body>
+
+</html>
